@@ -1,16 +1,19 @@
+import { Menu } from '@headlessui/react';
 import React from 'react';
 import { FC, memo } from 'react';
 import { FiMail, FiSearch } from 'react-icons/fi';
 import { IoNotificationsOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import { logout } from '../api/Api';
 import logo from '../images/logo.svg';
 import profile from '../images/profile.jpg';
+import Button from './Button/Buttons';
 
 interface Props {}
 
 const Header: FC<Props> = (props) => {
   return (
-    <div className="w-screen px-10 py-2 bg-secondary h-13.3 fixed top-0 z-10">
+    <div className="w-screen px-10 py-2 bg-secondary h-13.3 fixed top-0 z-20">
       <div className="flex justify-between">
         <div className="flex">
           <ul className="flex">
@@ -59,14 +62,45 @@ const Header: FC<Props> = (props) => {
                 <IoNotificationsOutline className="absolute w-6 h-6 top-2 text-logo" />
               </Link>
             </li>
-            <li>
-              <Link to="/dashboard">
-                <img
-                  className="mt-1 rounded-md w-7 h-7"
-                  src={profile}
-                  alt="profile"
-                />
-              </Link>
+            <li className="">
+              <Menu>
+                <Menu.Button>
+                  <img
+                    className="mt-1 rounded-md w-7 h-7"
+                    src={profile}
+                    alt="profile"
+                  />
+                </Menu.Button>
+                <Menu.Items className="absolute right-0 flex flex-col items-center w-40 h-32 bg-gray-200 rounded-md">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <Link
+                        to="/profile"
+                        className={`${
+                          active && 'text-blue-500'
+                        } mt-1 w-full text-center py-4`}
+                      >
+                        profile
+                      </Link>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${
+                          active && 'text-blue-500'
+                        } mt-1 w-full py-4`}
+                        onClick={() => {
+                          logout();
+                          window.location.href = '/login';
+                        }}
+                      >
+                        Log Out
+                      </button>
+                    )}
+                  </Menu.Item>
+                </Menu.Items>
+              </Menu>
             </li>
           </ul>
         </div>

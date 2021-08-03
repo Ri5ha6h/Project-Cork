@@ -10,7 +10,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   touched?: boolean;
   errors?: string;
   Icon?: IconType;
-  iconPlace: 'left' | 'right';
+  iconPlace?: 'left' | 'right';
 }
 
 const Input: FC<Props> = ({

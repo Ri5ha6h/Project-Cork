@@ -7,27 +7,31 @@ import SideBar from '../component/SideBar';
 import DashboardPage from './Dashboard.page';
 import LecturePage from './Lecture.page';
 import RecordingsPage from './Recordings.page';
+import Profile from '../component/Profile';
 
 interface Props {}
 
 const AppComponent: FC<Props> = (props) => {
   return (
     <Switch>
-      <div className="relative flex font-nunito">
+      <div className="relative flex h-screen font-nunito bg-accent bg-opacity-10">
         <Header />
         <Navbar />
         {/* <SideBar /> */}
-        <div className="absolute w-full h-screen bg-accent bg-opacity-15  top-26.6">
-          <Route path="/dashboard">
-            <DashboardPage />
-          </Route>
-          <Route path="/recordings">
-            <RecordingsPage />
-          </Route>
-          <Route path="/batch/:batchNum/lecture/:lectureNum">
-            <LecturePage />
-          </Route>
-        </div>
+        {/* <div className="absolute w-screen h-full bg-accent bg-opacity-15 top-26.6"> */}
+        <Route path="/dashboard">
+          <DashboardPage />
+        </Route>
+        <Route path="/profile">
+          <Profile />
+        </Route>
+        <Route path="/recordings">
+          <RecordingsPage />
+        </Route>
+        <Route path="/batch/:batchNum/lecture/:lectureNum">
+          <LecturePage />
+        </Route>
+        {/* </div> */}
       </div>
     </Switch>
   );
