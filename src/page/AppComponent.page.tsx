@@ -1,24 +1,24 @@
-import React from 'react';
-import { FC, memo } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Header from '../component/Header';
-import Navbar from '../component/Navbar';
-import SideBar from '../component/SideBar';
-import DashboardPage from './Dashboard.page';
-import LecturePage from './Lecture.page';
-import RecordingsPage from './Recordings.page';
-import Profile from '../component/Profile';
+import React from "react";
+import { FC, memo } from "react";
+import { Route, Switch } from "react-router-dom";
+import Header from "../component/Header";
+import Navbar from "../component/Navbar";
+import SideBar from "../component/SideBar";
+import DashboardPage from "./Dashboard.page";
+import LecturePage from "./Lecture.page";
+import RecordingsPage from "./Recordings.page";
+import Profile from "../component/Profile";
 
 interface Props {}
 
 const AppComponent: FC<Props> = (props) => {
   return (
     <Switch>
-      <div className="relative flex h-screen font-nunito bg-accent bg-opacity-10">
+      <div className="relative flex h-screen font-nunito ">
         <Header />
         <Navbar />
         {/* <SideBar /> */}
-        {/* <div className="absolute w-screen h-full bg-accent bg-opacity-15 top-26.6"> */}
+        {/* <div className="flex"> */}
         <Route path="/dashboard">
           <DashboardPage />
         </Route>

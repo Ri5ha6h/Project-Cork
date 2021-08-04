@@ -1,16 +1,16 @@
-import { FC, Fragment, memo, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { BiChevronDown } from 'react-icons/bi';
-import { FiMenu } from 'react-icons/fi';
-import { Transition } from '@headlessui/react';
-import React from 'react';
-import SideBar from './SideBar';
+import { FC, Fragment, memo, useState } from "react";
+import { Link } from "react-router-dom";
+import { BiChevronDown } from "react-icons/bi";
+import { FiMenu } from "react-icons/fi";
+import { Transition } from "@headlessui/react";
+import React from "react";
+import SideBar from "./SideBar";
 
 interface Props {}
 
 const Navbar: FC<Props> = (props) => {
-  const [isShow, setIsShow] = useState(false);
-  console.log('current state', isShow);
+  const [isShow, setIsShow] = useState(true);
+  console.log("current state", isShow);
 
   return (
     <>
@@ -21,7 +21,7 @@ const Navbar: FC<Props> = (props) => {
               className="w-6 h-6 mt-2 cursor-pointer text-dropdown"
               onClick={() => {
                 setIsShow((show) => !show);
-                console.log('after on click called', isShow);
+                console.log("after on click called", isShow);
               }}
             />
           </div>
@@ -47,8 +47,8 @@ const Navbar: FC<Props> = (props) => {
         leaveFrom="-translate-x-0"
         leaveTo="-translate-x-full"
       >
-        <div className="absolute w-56 h-screen text-white bg-accent bg-opacity-15 top-26.6 transition transform ease-in-out duration-500 -translate-x-full md:-translate-x-0">
-          {' '}
+        <div className="w-56 h-screen mt-26.6 p-10 text-white bg-accent">
+          {" "}
           Sidebar
         </div>
       </Transition>

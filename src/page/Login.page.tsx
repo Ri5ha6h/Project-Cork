@@ -8,7 +8,7 @@ import { FaSpinner } from 'react-icons/fa';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import React from 'react';
-import { login } from '../api/Api';
+import { login } from '../api/auth';
 
 interface Props {}
 

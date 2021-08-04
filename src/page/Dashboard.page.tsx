@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { FC, memo } from 'react';
-import { Link } from 'react-router-dom';
-import { fetchGroups } from '../api/Api';
-import Group from '../api/Group';
-import Buttons from '../component/Button/Buttons';
-import profile from '../images/profile.jpg';
+import React, { useEffect, useState } from "react";
+import { FC, memo } from "react";
+import { Link } from "react-router-dom";
+import { fetchGroups } from "../api/groups";
+import Group from "../component/Group";
+import Buttons from "../component/Button/Buttons";
+import profile from "../images/profile.jpg";
 
 interface Props {}
 
 const Dashboard: FC<Props> = (props) => {
   const [groups, setGroups] = useState<any>([]);
-  const [query, setQuery] = useState('');
-  const [btnsrch, setBtnsrch] = useState('');
+  const [query, setQuery] = useState("");
+  const [btnsrch, setBtnsrch] = useState("");
 
   useEffect(() => {
-    fetchGroups({ status: 'all-groups', query }).then((data) => {
+    fetchGroups({ status: "all-groups", query }).then((data) => {
       setGroups(data);
     });
   }, [query]);
@@ -27,7 +27,7 @@ const Dashboard: FC<Props> = (props) => {
   };
   return (
     <>
-      <div className="absolute h-screen mt-5 md:left-58 top-26.6">
+      <div className="mt-26.6 p-10 w-screen h-screen bg-accent bg-opacity-20">
         <div className="">
           <input
             className="ml-5 border-b border-blue-500 w-52 focus:outline-none"
@@ -51,15 +51,16 @@ const Dashboard: FC<Props> = (props) => {
             onClick={handleClick}
           />
         </div>
-
-        {groups.map((u: any) => (
-          <Group
-            key={u.id}
-            groupName={u.name}
-            image={profile}
-            userName={u.creator.first_name}
-          />
-        ))}
+        <div className="grid grid-cols-2 gap-x-4">
+          {groups.map((u: any) => (
+            <Group
+              key={u.id}
+              groupName={u.name}
+              image={profile}
+              // first_name={u.creator.first_name}
+            />
+          ))}
+        </div>
       </div>
     </>
   );

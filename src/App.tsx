@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import { LS_LOGIN_TOKEN } from './api/Api';
+import { LS_AUTH_TOKEN } from './api/base';
 import AppComponentPage from './page/AppComponent.page';
 import AuthPage from './page/Auth.page';
 import NotFound from './page/NotFound';
 
 function App() {
-  const token = localStorage.getItem(LS_LOGIN_TOKEN);
+  const token = localStorage.getItem(LS_AUTH_TOKEN);
 
   return (
     <BrowserRouter>

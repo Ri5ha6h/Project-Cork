@@ -1,17 +1,17 @@
-import { Switch } from '@headlessui/react';
-import { FC, memo, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import Button from '../component/Button/Buttons';
-import InputField from '../component/Input/Input.field';
-import { FiUser, FiLock } from 'react-icons/fi';
-import { FaSpinner } from 'react-icons/fa';
-import { HiOutlineMail } from 'react-icons/hi';
-import * as yup from 'yup';
-import { useFormik } from 'formik';
-import React from 'react';
+import { Switch } from "@headlessui/react";
+import { FC, memo, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import Button from "../component/Button/Buttons";
+import InputField from "../component/Input/Input.field";
+import { FiUser, FiLock } from "react-icons/fi";
+import { FaSpinner } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+import * as yup from "yup";
+import { useFormik } from "formik";
+import React from "react";
 
 interface Props {}
-const Signup: FC<Props> = (props) => {
+const SignUp: FC<Props> = (props) => {
   const [enabled, setEnabled] = useState(false);
   const history = useHistory();
 
@@ -25,9 +25,9 @@ const Signup: FC<Props> = (props) => {
     isSubmitting,
   } = useFormik({
     initialValues: {
-      username: '',
-      email: '',
-      password: '',
+      username: "",
+      email: "",
+      password: "",
     },
     validationSchema: yup.object().shape({
       email: yup.string().required().email(),
@@ -38,10 +38,10 @@ const Signup: FC<Props> = (props) => {
       username: yup.string().required(),
     }),
     onSubmit: (data, { setSubmitting }) => {
-      console.log('submitting data', data);
+      console.log("submitting data", data);
       setTimeout(() => {
-        console.log('submitted data successfully');
-        history.push('/login');
+        console.log("submitted data successfully");
+        history.push("/login");
       }, 4000);
     },
   });
@@ -52,7 +52,7 @@ const Signup: FC<Props> = (props) => {
         <div className="text-gray-600">
           <h1 className="text-5xl">Get started with a free account</h1>
           <p className="mt-5 text-sm font-medium">
-            Already have an account?{' '}
+            Already have an account?{" "}
             <Link
               to="/login"
               className="text-blue-500 border-b border-blue-500"
@@ -73,7 +73,7 @@ const Signup: FC<Props> = (props) => {
             iconPlace="left"
             touched={touched.username}
             errors={errors.username}
-            {...getFieldProps('username')}
+            {...getFieldProps("username")}
           />
           <InputField
             labelContent="Email address"
@@ -86,20 +86,20 @@ const Signup: FC<Props> = (props) => {
             iconPlace="left"
             touched={touched.email}
             errors={errors.email}
-            {...getFieldProps('email')}
+            {...getFieldProps("email")}
           />
           <InputField
             labelContent="Password"
             inputName="password"
             placeholder="Password"
             className="pl-10 "
-            type={enabled && values.password ? 'text' : 'password'}
+            type={enabled && values.password ? "text" : "password"}
             autoComplete="new-password"
             Icon={FiLock}
             iconPlace="left"
             touched={touched.password}
             errors={errors.password}
-            {...getFieldProps('password')}
+            {...getFieldProps("password")}
           />
 
           <div className="flex mt-10">
@@ -114,7 +114,7 @@ const Signup: FC<Props> = (props) => {
                 htmlFor="loggedIn"
                 className="ml-3 text-lg tracking-wide text-gray-400"
               >
-                I agree to the{' '}
+                I agree to the{" "}
                 <span className="text-blue-500">terms and conditions.</span>
               </label>
             </div>
@@ -127,14 +127,14 @@ const Signup: FC<Props> = (props) => {
                   checked={enabled}
                   onChange={setEnabled}
                   className={`${
-                    enabled ? 'bg-blue-600' : 'bg-gray-200'
+                    enabled ? "bg-blue-600" : "bg-gray-200"
                   } relative inline-flex items-center h-4 rounded-full w-9 transition-colors focus:outline-none`}
                 >
                   <span
                     className={`${
                       enabled
-                        ? 'translate-x-5  bg-white'
-                        : 'translate-x-0 bg-blue-600'
+                        ? "translate-x-5  bg-white"
+                        : "translate-x-0 bg-blue-600"
                     } inline-block w-4 h-4 transform duration-500 rounded-full transition-transform`}
                   />
                 </Switch>
@@ -148,7 +148,7 @@ const Signup: FC<Props> = (props) => {
                 isSubmitting ? (
                   <FaSpinner className="w-4 h-4 animate-spin"></FaSpinner>
                 ) : (
-                  'Get Started!'
+                  "Get Started!"
                 )
               }
             />
@@ -156,10 +156,10 @@ const Signup: FC<Props> = (props) => {
         </form>
 
         <p className="mt-12 text-sm text-gray-600">
-          <span className="text-blue-500">&copy;</span> 2021 All Right Reserved.{' '}
-          <span className="text-blue-500">CORK</span> is product of Designreset.{' '}
-          <span className="text-blue-500">Cookie Preferences, </span>{' '}
-          <span className="text-blue-500">Privacy</span> ,and{' '}
+          <span className="text-blue-500">&copy;</span> 2021 All Right Reserved.{" "}
+          <span className="text-blue-500">CORK</span> is product of Designreset.{" "}
+          <span className="text-blue-500">Cookie Preferences, </span>{" "}
+          <span className="text-blue-500">Privacy</span> ,and{" "}
           <span className="text-blue-500">Terms.</span>
         </p>
       </div>
@@ -167,5 +167,5 @@ const Signup: FC<Props> = (props) => {
   );
 };
 
-Signup.defaultProps = {};
-export default memo(Signup);
+SignUp.defaultProps = {};
+export default memo(SignUp);

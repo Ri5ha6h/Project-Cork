@@ -3,7 +3,7 @@ import { FC, memo } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import AuthHero from '../component/AuthHero';
 import LoginPage from './Login.page';
-import SignupPage from './Signup.page';
+import SignUpPage from './SignUp.page';
 
 interface Props {}
 
@@ -15,7 +15,7 @@ const AuthPage: FC<Props> = (props) => {
           <LoginPage />
         </Route>
         <Route path="/signup">
-          <SignupPage />
+          <SignUpPage />
         </Route>
         <AuthHero />
       </div>

@@ -1,13 +1,13 @@
-import { Menu } from '@headlessui/react';
-import React from 'react';
-import { FC, memo } from 'react';
-import { FiMail, FiSearch } from 'react-icons/fi';
-import { IoNotificationsOutline } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
-import { logout } from '../api/Api';
-import logo from '../images/logo.svg';
-import profile from '../images/profile.jpg';
-import Button from './Button/Buttons';
+import { Menu } from "@headlessui/react";
+import React from "react";
+import { FC, memo } from "react";
+import { FiMail, FiSearch } from "react-icons/fi";
+import { IoNotificationsOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
+import { logout } from "../api/auth";
+import logo from "../images/logo.svg";
+import profile from "../images/profile.jpg";
+import Button from "./Button/Buttons";
 
 interface Props {}
 
@@ -77,7 +77,7 @@ const Header: FC<Props> = (props) => {
                       <Link
                         to="/profile"
                         className={`${
-                          active && 'text-blue-500'
+                          active && "text-blue-500"
                         } mt-1 w-full text-center py-4`}
                       >
                         profile
@@ -88,11 +88,11 @@ const Header: FC<Props> = (props) => {
                     {({ active }) => (
                       <button
                         className={`${
-                          active && 'text-blue-500'
+                          active && "text-blue-500"
                         } mt-1 w-full py-4`}
                         onClick={() => {
                           logout();
-                          window.location.href = '/login';
+                          window.location.href = "/login";
                         }}
                       >
                         Log Out
