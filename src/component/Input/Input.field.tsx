@@ -28,11 +28,11 @@ const Input: FC<Props> = ({
   const touch = errors && touched && ' border-red-500 ';
 
   return (
-    <div className="h-16 ">
-      <label htmlFor={inputName} className="sr-only">
+    <div className='h-16 '>
+      <label htmlFor={inputName} className='sr-only'>
         {labelContent}
       </label>
-      <div className="relative mt-2">
+      <div className='relative mt-2'>
         <input
           {...rest}
           id={inputName}
@@ -52,7 +52,7 @@ const Input: FC<Props> = ({
           />
         )}
       </div>
-      {touched && <div className="text-red-400">{errors}</div>}
+      {touched && <div className='text-red-400'>{errors}</div>}
     </div>
   );
 };

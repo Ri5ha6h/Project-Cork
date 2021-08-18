@@ -1,6 +1,6 @@
-export interface User {
-    id: number;
-    first_name: string;
-    last_name: string;
-    role: "staff" | "admin";
-  } 
+import {Entity} from './Entity'
+export interface User extends Entity{
+  first_name: string;
+  last_name: string;
+  role: 'staff' | 'admin';
+}

@@ -1,20 +1,23 @@
 import React from 'react';
 import { FC, memo } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import AuthHero from '../component/AuthHero';
+import AuthHero from '../../component/AuthHero';
+import { User } from '../../models/User';
 import LoginPage from './Login.page';
 import SignUpPage from './SignUp.page';
 
-interface Props {}
+interface Props {
+  
+}
 
 const AuthPage: FC<Props> = (props) => {
   return (
     <Switch>
-      <div className="relative flex justify-between h-screen font-nunito">
-        <Route path="/login">
+      <div className='relative flex justify-between h-screen font-nunito'>
+        <Route path='/login'>
           <LoginPage />
         </Route>
-        <Route path="/signup">
+        <Route path='/signup'>
           <SignUpPage />
         </Route>
         <AuthHero />

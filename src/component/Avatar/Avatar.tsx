@@ -48,7 +48,7 @@ const Avatar: FC<Props> = ({
           <img
             className={'' + sizeClass + shapeClass}
             src={image}
-            alt="profilePic"
+            alt='profilePic'
           />
         )}
         {initials && (

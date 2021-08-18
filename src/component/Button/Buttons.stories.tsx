@@ -17,5 +17,5 @@ export default {
 };
 
 export const Main = (args: any) => (
-  <Button disabled={true} children="login" {...args} />
+  <Button disabled={true} children='login' {...args} />
 );

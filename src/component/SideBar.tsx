@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { FC, memo } from 'react';
 
 interface Props {}
 
 const SideBar: FC<Props> = (props) => {
   return (
-    <div className="w-56 h-screen text-white duration-500 ease-in-out transform -translate-x-full  bg-accent bg-opacity-15 md:-translate-x-0">
+    <div className='w-56 h-screen mt-26.6 p-10 text-white bg-accent'>
       {' '}
       Sidebar
     </div>
